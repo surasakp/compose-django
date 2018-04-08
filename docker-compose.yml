@@ -4,11 +4,16 @@ services:
   db:
     image: postgres
   web:
+    # build: .
+    # command: python3 manage.py runserver 0.0.0.0:8000
+    # volumes:
+    #   - .:/code
+    # ports:
+    #   - "8000:8000"
+    # depends_on:
+    #   - db
+
     build: .
-    command: python3 manage.py runserver 0.0.0.0:8000
-    volumes:
-      - .:/code
-    ports:
-      - "8000:8000"
+    image: django_project
     depends_on:
       - db
